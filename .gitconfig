@@ -10,3 +10,5 @@
 	co = checkout
 	p = push
 	pf = push --force-with-lease
+	fom = git fetch origin master
+	rom = git reset --hard origin/master
