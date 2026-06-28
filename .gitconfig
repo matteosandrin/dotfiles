@@ -12,3 +12,4 @@
 	pf = push --force-with-lease
 	fom = git fetch origin master
 	rom = git reset --hard origin/master
+	rbom = git rebase origin/master
