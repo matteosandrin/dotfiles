@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "attribution": {
+    "commit": ""
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-code-plugins": true
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "preferredNotifChannel": "iterm2_with_bell",
+  "skipAutoPermissionPrompt": true
+}
