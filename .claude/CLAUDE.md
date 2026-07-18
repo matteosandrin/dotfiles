@@ -28,6 +28,10 @@ If the user has already filled out the section above the `<details>` section, ma
  - When creating new branches, NEVER use a prefix like "codex" or "[codex]" or "claude" or "[claude]
  - When creating new Pull Requests, NEVER use a prefix like "codex" or "[codex]" or "claude" or "[claude] in the title
 
+## Committing code
+
+ - Never stage, commit or push code in git directly. Always wait for the human to do it, unless the nature of the task at hand involves requires stage, commit or push (i.e. the user asks you to commit or rebase)
+
 ## Searching the Repo
 
  - Use `rg` for content search (recursive by default `-r` means `--replace`, not recursive) and `rg --files <path> -g '<glob>'` or `bfs` for filename search, always with a targeted path (e.g. `workspaces/backend/src`).
