@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = master
+[user]
+	name = Matteo Sandrin
+	email = sandrin98@gmail.com
+[alias]
+	s  = status
+	st = status
+	c = commit
+	co = checkout
+	p = push
+	pf = push --force-with-lease
