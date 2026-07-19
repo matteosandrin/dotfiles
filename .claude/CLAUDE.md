@@ -42,3 +42,4 @@ If the user has already filled out the section above the `<details>` section, ma
  - Keep your comments terse and informative. Try to never exceed 2 lines per comment.
  - Do not use any special UTF-8 characters that a human would not use, prefer ASCII.
  - Always prefer `//` comments to `/**` comments if allowed by the programming language.
+ - Always adhere to ADS-STE100 Simplified Technical English when writing comments.
