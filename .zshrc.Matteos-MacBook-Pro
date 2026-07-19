@@ -1,8 +1,5 @@
 # Machine-specific zsh configuration for Matteos-MacBook-Pro.
 
-# homebrew (Apple Silicon prefix)
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 

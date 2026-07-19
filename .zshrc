@@ -6,6 +6,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 source $ZSH/oh-my-zsh.sh
 
+# homebrew (Apple Silicon prefix)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # set large font when using claude or codex
 export ITERM_TEXT_STEPS=5
 

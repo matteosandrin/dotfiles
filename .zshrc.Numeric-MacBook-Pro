@@ -1,8 +1,5 @@
 # Machine-specific zsh configuration for Numeric-MacBook-Pro.
 
-# homebrew (Apple Silicon prefix)
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
