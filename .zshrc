@@ -6,7 +6,33 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 source $ZSH/oh-my-zsh.sh
 
-alias claude="clear && claude --dangerously-skip-permissions"
+# set large font when using claude or codex
+export ITERM_TEXT_STEPS=5
+
+iterm_text_bigger() {
+	osascript -e 'tell application "System Events" to keystroke "+" using command down'
+}
+
+iterm_text_smaller() {
+	osascript -e 'tell application "System Events" to keystroke "-" using command down'
+}
+
+run_with_bigger_text() {
+	local steps="${ITERM_TEXT_STEPS}"
+	clear
+	for ((i = 0; i < steps; i++)); do iterm_text_bigger; done
+	command "$@"
+	clear
+	for ((i = 0; i < steps; i++)); do iterm_text_smaller; done
+}
+
+claude() {
+	run_with_bigger_text claude --dangerously-skip-permissions "$@"
+}
+
+codex() {
+	run_with_bigger_text codex "$@"
+}
 
 # jump to Programming Projects folder
 prp(){
@@ -56,8 +82,15 @@ export FLASK_APP=app.py
 export TERM=xterm-256color
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# use nano over ssh, vscode otherwise
+if [[ -n $SSH_CONNECTION ]]; then
+	export EDITOR='nano'
+else
+	export EDITOR='code --wait'
+fi
+
 # Load config specific to this machine (installed tooling, hardcoded paths),
 # guarded by hostname so the portable config above stays machine-agnostic.
-if [[ "$(hostname -s)" == "Matteos-MacBook-Pro" ]]; then
-	source "$HOME/.zshrc.Matteos-MacBook-Pro"
+if [[ -f "$HOME/.zshrc.$(hostname -s)" ]]; then
+	source "$HOME/.zshrc.$(hostname -s)"
 fi

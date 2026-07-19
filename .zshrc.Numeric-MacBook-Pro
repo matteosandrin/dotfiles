@@ -1,0 +1,38 @@
+# Machine-specific zsh configuration for Numeric-MacBook-Pro.
+
+# homebrew (Apple Silicon prefix)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# Numeric development environment configuration
+if [ -f "$HOME/.numeric/.numericrc" ]; then
+    source "$HOME/.numeric/.numericrc"
+fi
+
+# libpq (homebrew)
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# uv
+. "$HOME/.local/bin/env"
+
+# numeric-io/cli-tools
+source "$HOME/dev/src/github.com/numeric-io/cli-tools/init.sh"
+eval "$(wtp shell-init zsh)"
+alias wt="wtp"
+
+# local bin
+export PATH="$HOME/.local/bin:$PATH"
