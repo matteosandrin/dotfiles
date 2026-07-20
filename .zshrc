@@ -50,7 +50,10 @@ prp(){
 # override cd to automatically enter virtualenvs matching the current directory
 # it also exits the virtualenv automatically as soon as you exit the directory
 function cd {
-    builtin cd "$@"
+    builtin cd "$@" || return
+
+    # skip the virtualenv logic when virtualenvwrapper is not loaded
+    command -v lsvirtualenv >/dev/null 2>&1 || return 0
 
     # the path is not the root of the filesystem
     if [[ ${PWD} != "/" ]] ; then
